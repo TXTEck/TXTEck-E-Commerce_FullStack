@@ -32,8 +32,6 @@ export default class CarTableRow extends Component
                     
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="red-button" to={"/DeleteCar/" + this.props.car._id}>Delete</Link> : null}
 
-                    {soldOrForSale}
-
                 </td>
             </tr>
         )
