@@ -6,7 +6,8 @@ export default class JerseyTable extends Component {
         super(props);
         this.state = {
             sortBy: null,
-            sortAsc: true
+            sortAsc: true,
+            searchTerm: ''
         };
     }
 
@@ -18,11 +19,22 @@ export default class JerseyTable extends Component {
         });
     };
 
+    updateSearchTerm = (event) => {
+        this.setState({ searchTerm: event.target.value });
+    };
+
     render() {
         const { jerseys } = this.props;
-        const { sortBy, sortAsc } = this.state;
+        const { sortBy, sortAsc, searchTerm } = this.state;
 
-        const sortedJerseys = [...jerseys].sort((a, b) => {
+        let filteredJerseys = jerseys.filter(jersey =>
+            jersey.team.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            jersey.player.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            jersey.number.toString().includes(searchTerm) ||
+            jersey.price.toString().includes(searchTerm)
+        );
+
+        const sortedJerseys = [...filteredJerseys].sort((a, b) => {
             if (sortBy === 'team') {
                 return sortAsc ? a.team.localeCompare(b.team) : b.team.localeCompare(a.team);
             }
@@ -39,37 +51,31 @@ export default class JerseyTable extends Component {
         });
 
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th onClick={() => this.handleSort('team')}>Team {sortBy === 'team' && (sortAsc ? '▲' : '▼')}</th>
-                        <th onClick={() => this.handleSort('player')}>Player {sortBy === 'player' && (sortAsc ? '▲' : '▼')}</th>
-                        <th onClick={() => this.handleSort('number')}>Number {sortBy === 'number' && (sortAsc ? '▲' : '▼')}</th>
-                        <th onClick={() => this.handleSort('price')}>Price {sortBy === 'price' && (sortAsc ? '▲' : '▼')}</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {sortedJerseys.map((jersey) => (
-                        <JerseyTableRow key={jersey._id} jersey={jersey} />
-                    ))}
-                </tbody>
-            </table>
+            <div>
+                <input
+                    type="text"
+                    placeholder="Search jerseys..."
+                    value={this.state.searchTerm}
+                    onChange={this.updateSearchTerm}
+                    style={{ marginBottom: "20px" }}
+                />
+                <table>
+                    <thead>
+                        <tr>
+                            <th onClick={() => this.handleSort('team')}>Team {sortBy === 'team' && (sortAsc ? '▲' : '▼')}</th>
+                            <th onClick={() => this.handleSort('player')}>Player {sortBy === 'player' && (sortAsc ? '▲' : '▼')}</th>
+                            <th onClick={() => this.handleSort('number')}>Number {sortBy === 'number' && (sortAsc ? '▲' : '▼')}</th>
+                            <th onClick={() => this.handleSort('price')}>Price {sortBy === 'price' && (sortAsc ? '▲' : '▼')}</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {sortedJerseys.map((jersey) => (
+                            <JerseyTableRow key={jersey._id} jersey={jersey} />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         );
     }
 }
-{/* <tr>
-<th onClick={() => this.handleSort("Player")}>
-    Player {sortColumn === "Player" && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}
-</th>
-<th onClick={() => this.handleSort("Number")}>
-    Number {sortColumn === "Number" && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}
-</th>
-<th onClick={() => this.handleSort("Price")}>
-    Price {sortColumn === "Price" && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}
-</th>
-<th onClick={() => this.handleSort("Team")}>
-    Team {sortColumn === "Team" && <span>{sortDirection === "asc" ? "▲" : "▼"}</span>}
-</th>
-</tr>
-</thead> */}
