@@ -5,8 +5,8 @@ import axios from "axios"
 
 import CarTable from "./CarTable"
 import Logout from "./Logout"
-
 import {ACCESS_LEVEL_GUEST, ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
+import JerseyTable from './JerseyTable'; 
 
 
 export default class DisplayAllCars extends Component 
@@ -16,13 +16,32 @@ export default class DisplayAllCars extends Component
         super(props)
         
         this.state = {
-            cars:[]
+            cars:[],
+            jerseys: []
         }
     }
     
     
     componentDidMount() 
     {
+        axios.get(`${SERVER_HOST}/jerseys`)
+        .then(res =>
+        {
+            if(res.data) 
+            {
+                if (res.data.errorMessage) 
+                {
+                    console.log(res.data.errorMessage)    
+                } 
+                else 
+                {           
+                    console.log("Jerseys records read")   
+                    this.setState({ jerseys: res.data }) 
+                }   
+            } else {
+                console.log("Jerseys record not found")
+            }
+        });
         axios.get(`${SERVER_HOST}/cars`)
         .then(res => 
         {
@@ -33,8 +52,7 @@ export default class DisplayAllCars extends Component
                     console.log(res.data.errorMessage)    
                 }
                 else
-                {           
-                    console.log("Records read")   
+                {             
                     this.setState({cars: res.data}) 
                 }   
             }
@@ -43,11 +61,14 @@ export default class DisplayAllCars extends Component
                 console.log("Record not found")
             }
         })
+
+    
     }
 
   
     render() 
-    {   
+    {  
+        
         return (           
             <div className="form-container">
                 {
@@ -80,7 +101,11 @@ export default class DisplayAllCars extends Component
                           null
                     }
                 </div>
+                <div className="table-container">
+                    <JerseyTable jerseys={this.state.jerseys} />                         
+                </div>
             </div> 
+            
         )
     }
 }
