@@ -88,19 +88,6 @@ export default class DisplayAllCars extends Component
                         <Link className="red-button" to={"/ResetDatabase"}>Reset Database</Link>  <br/><br/><br/>
                       </div>
                 }
-                
-                <div className="table-container">
-                    <CarTable cars={this.state.cars} />                         
-                    {
-                        localStorage.accessLevel >= ACCESS_LEVEL_ADMIN 
-                        ?
-                          <div className="add-new-car">
-                            
-                          </div>
-                        :
-                          null
-                    }
-                </div>
                 <div className="table-container">
                     <JerseyTable jerseys={this.state.jerseys} />   
                     {
