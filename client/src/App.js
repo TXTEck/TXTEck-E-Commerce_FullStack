@@ -16,6 +16,7 @@ import LoggedInRoute from "./components/LoggedInRoute"
 import BuyCar from "./components/BuyCar"
 import PayPalMessage from "./components/PayPalMessage"
 import EditJersey from "./components/EditJersey"
+import DeleteJersey from "./components/DeleteJersey"
 
 
 
@@ -50,6 +51,7 @@ export default class App extends Component
                     <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
 
                     <LoggedInRoute exact path="/EditJersey/:id" component={EditJersey} /> 
+                    <LoggedInRoute exact path="/DeleteJersey/:id" component={DeleteJersey} />
                     <Route exact path="/DisplayAllCars" component={DisplayAllCars}/> 
                     <Route path="*" component={DisplayAllCars}/>   
                                        
