@@ -1,15 +1,17 @@
 import React, {Component} from "react"
-import Form from "react-bootstrap/Form"
 import {Redirect, Link} from "react-router-dom"
+import Form from "react-bootstrap/Form"
+
 import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
 
-import {ACCESS_LEVEL_NORMAL_USER, SERVER_HOST} from "../config/global_constants"
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
 
-export default class EditJersey extends Component 
+
+export default class AddCar extends Component
 {
-    constructor(props) 
+    constructor(props)
     {
         super(props)
 
@@ -20,43 +22,17 @@ export default class EditJersey extends Component
             price: ``,
             colour:``,
             size: ``,
-            redirectToDisplayAllCars:localStorage.accessLevel < ACCESS_LEVEL_NORMAL_USER
+            redirectToDisplayAllCars:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
+
     componentDidMount() 
-    {      
-        this.inputToFocus.focus()
-  
-        axios.get(`${SERVER_HOST}/jerseys/${this.props.match.params.id}`, {headers:{"authorization":localStorage.token}})
-        .then(res => 
-        {     
-            if(res.data)
-            {
-                if (res.data.errorMessage)
-                {
-                    console.log(res.data.errorMessage)    
-                }
-                else
-                { 
-                    this.setState({
-                        team: res.data.team,
-                        player: res.data.player,
-                        number: res.data.number,
-                        price: res.data.price,
-                        colour: res.data.colour,
-                        size: res.data.size
-                    })
-                }
-            }
-            else
-            {
-                console.log(`Record not found`)
-            }
-        })
+    {     
+        this.inputToFocus.focus()        
     }
-
-
+ 
+ 
     handleChange = (e) => 
     {
         this.setState({[e.target.name]: e.target.value})
@@ -76,9 +52,9 @@ export default class EditJersey extends Component
             size: this.state.size
         }
 
-        axios.put(`${SERVER_HOST}/jerseys/${this.props.match.params.id}`, jerseyObject, {headers:{"authorization":localStorage.token}})
+        axios.post(`${SERVER_HOST}/jerseys`, jerseyObject, {headers:{"authorization":localStorage.token}})
         .then(res => 
-        {             
+        {   
             if(res.data)
             {
                 if (res.data.errorMessage)
@@ -86,29 +62,28 @@ export default class EditJersey extends Component
                     console.log(res.data.errorMessage)    
                 }
                 else
-                {      
-                    console.log(`Record updated`)
+                {   
+                    console.log("Record added")
                     this.setState({redirectToDisplayAllCars:true})
-                }
+                } 
             }
             else
             {
-                console.log(`Record not updated`)
+                console.log("Record not added")
             }
         })
     }
 
 
-    render() 
-    {
+    render()
+    {        
         return (
-            <div className="form-container">
-    
-                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}  
-                        
+            <div className="form-container"> 
+                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}                                            
+                    
                 <Form>
                     <Form.Group controlId="team">
-                        <Form.Label>Model</Form.Label>
+                        <Form.Label>Team</Form.Label>
                         <Form.Control ref = {(input) => { this.inputToFocus = input }} type="text" name="team" value={this.state.team} onChange={this.handleChange} />
                     </Form.Group>
 
@@ -137,7 +112,7 @@ export default class EditJersey extends Component
                         <Form.Control type="text" name="price" value={this.state.price} onChange={this.handleChange} />
                     </Form.Group>
   
-                    <LinkInClass value="Update" className="green-button" onClick={this.handleSubmit}/>  
+                    <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>  
     
                     <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>
                 </Form>

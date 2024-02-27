@@ -94,7 +94,7 @@ export default class DisplayAllCars extends Component
                         localStorage.accessLevel >= ACCESS_LEVEL_ADMIN 
                         ?
                           <div className="add-new-car">
-                            
+                            <Link className="blue-button" to={"/AddJersey"}>Add New Jersey</Link> 
                           </div>
                         :
                           null
