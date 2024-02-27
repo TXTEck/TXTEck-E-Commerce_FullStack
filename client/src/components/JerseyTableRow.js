@@ -8,7 +8,6 @@ export default class JerseyTableRow extends Component
 {    
     render() 
     {
-        console.log(this.props.jersey)
         return (
             <tr>
                 <td>{this.props.jersey.team}</td>
@@ -18,9 +17,8 @@ export default class JerseyTableRow extends Component
                 <td>{this.props.jersey.colour}</td>
                 <td>{this.props.jersey.price}</td>
                 <td>
-                    {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? <Link className="green-button" to={"/EditCar/" + this.props.car._id}>Edit</Link> : null}
+                    {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? <Link className="green-button" to={"/EditJersey/" + this.props.jersey._id}>Edit</Link> : null}
                     
-                    {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="red-button" to={"/DeleteCar/" + this.props.car._id}>Delete</Link> : null}
 
                 </td>
             </tr>
