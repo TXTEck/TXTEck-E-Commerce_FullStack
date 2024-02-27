@@ -15,6 +15,8 @@ import DisplayAllCars from "./components/DisplayAllCars"
 import LoggedInRoute from "./components/LoggedInRoute"
 import BuyCar from "./components/BuyCar"
 import PayPalMessage from "./components/PayPalMessage"
+import EditJersey from "./components/EditJersey"
+
 
 
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants"
@@ -46,8 +48,11 @@ export default class App extends Component
                     <LoggedInRoute exact path="/AddCar" component={AddCar} />
                     <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
                     <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
+
+                    <LoggedInRoute exact path="/EditJersey/:id" component={EditJersey} /> 
                     <Route exact path="/DisplayAllCars" component={DisplayAllCars}/> 
-                    <Route path="*" component={DisplayAllCars}/>                            
+                    <Route path="*" component={DisplayAllCars}/>   
+                                       
                 </Switch>
             </BrowserRouter>
         )
