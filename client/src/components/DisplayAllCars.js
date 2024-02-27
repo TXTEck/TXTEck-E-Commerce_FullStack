@@ -102,7 +102,16 @@ export default class DisplayAllCars extends Component
                     }
                 </div>
                 <div className="table-container">
-                    <JerseyTable jerseys={this.state.jerseys} />                         
+                    <JerseyTable jerseys={this.state.jerseys} />   
+                    {
+                        localStorage.accessLevel >= ACCESS_LEVEL_ADMIN 
+                        ?
+                          <div className="add-new-car">
+                            
+                          </div>
+                        :
+                          null
+                    }                      
                 </div>
             </div> 
             
