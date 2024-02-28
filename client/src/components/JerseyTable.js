@@ -12,7 +12,7 @@ export default class JerseyTable extends Component {
             sizeFilter: '',
             numberFilter: '',
             minPriceFilter: 0,
-            maxPriceFilter: 500,
+            maxPriceFilter: 300,
         };
     }
 
@@ -105,19 +105,19 @@ export default class JerseyTable extends Component {
                         placeholder="Filter by number..."
                         value={this.state.numberFilter}
                         onChange={this.updateFilter}
-                    />
+                    /><br/>
                     Min Price: <input
                         type="range"
                         name="minPriceFilter"
                         min="0"
-                        max="500" value={this.state.minPriceFilter}
+                        max="300" value={this.state.minPriceFilter}
                         onChange={this.updateFilter}
                     /> ${this.state.minPriceFilter}
                     Max Price: <input
                         type="range"
                         name="maxPriceFilter"
                         min="0"
-                        max="500"
+                        max="300"
                         value={this.state.maxPriceFilter}
                         onChange={this.updateFilter}
                     /> ${this.state.maxPriceFilter}
