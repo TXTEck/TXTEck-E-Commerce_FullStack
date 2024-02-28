@@ -9,7 +9,7 @@ const JWT_PRIVATE_KEY = fs.readFileSync(process.env.JWT_PRIVATE_KEY_FILENAME, 'u
 // read all records
 router.get(`/jerseys`, (req, res) => 
 {   
-    //user does not have to be logged in to see car details
+    //user does not have to be logged in to see jersey details
     jerseysModel.find((error, data) => 
     {
         res.json(data)
