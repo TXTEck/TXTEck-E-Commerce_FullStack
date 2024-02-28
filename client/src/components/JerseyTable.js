@@ -61,7 +61,11 @@ export default class JerseyTable extends Component {
                 return sortAsc ? a.player.localeCompare(b.player) : b.player.localeCompare(a.player);
             } else if (sortBy === 'number') {
                 return sortAsc ? a.number - b.number : b.number - a.number;
-            } else if (sortBy === 'price') {
+            }
+            else if (sortBy === 'colour') {
+                return sortAsc ? a.colour.localeCompare(b.colour) : b.colour.localeCompare(a.colour);
+            } 
+            else if (sortBy === 'price') {
                 return sortAsc ? a.price - b.price : b.price - a.price;
             }
             return 0;
