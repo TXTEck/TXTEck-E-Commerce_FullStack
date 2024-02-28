@@ -8,7 +8,7 @@ let jerseysSchema = new mongoose.Schema(
         size: {type: String},
         price: {type: Number},
         colour: {type: String},
-        sold: {type: Boolean, default:false}
+        jerseyPictureFilename :{type:String, default:""}
    },
    {
        collection: `jerseys`
