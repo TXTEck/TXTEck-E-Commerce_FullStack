@@ -20,6 +20,8 @@ export default class JerseyTableRow extends Component
                     {localStorage.accessLevel > ACCESS_LEVEL_ADMIN ? <Link className="green-button" to={"/EditJersey/" + this.props.jersey._id}>Edit</Link> : null}
                     
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="red-button" to={"/DeleteJersey/" + this.props.jersey._id}>Delete</Link> : null}
+
+                    
                 </td>
             </tr>
         )

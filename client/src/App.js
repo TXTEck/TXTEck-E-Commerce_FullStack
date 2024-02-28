@@ -18,7 +18,8 @@ import PayPalMessage from "./components/PayPalMessage"
 import EditJersey from "./components/EditJersey"
 import DeleteJersey from "./components/DeleteJersey"
 import AddJersey from "./components/AddJersey"
-
+import ViewUsers from "./components/ViewUsers"
+import NavBar from "./components/NavBar"
 
 
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants"
@@ -39,6 +40,7 @@ export default class App extends Component
     {
         return (
             <BrowserRouter>
+                <NavBar />
                 <Switch>
                     <Route exact path="/Register" component={Register} />
                     <Route exact path="/ResetDatabase" component={ResetDatabase} />                    
@@ -54,6 +56,7 @@ export default class App extends Component
                     <LoggedInRoute exact path="/EditJersey/:id" component={EditJersey} /> 
                     <LoggedInRoute exact path="/DeleteJersey/:id" component={DeleteJersey} />
                     <LoggedInRoute exact path="/AddJersey" component={AddJersey} />
+                    <LoggedInRoute exact path="/ViewUsers" component={ViewUsers} />
                     <Route exact path="/DisplayAllCars" component={DisplayAllCars}/> 
                     <Route path="*" component={DisplayAllCars}/>   
                                        

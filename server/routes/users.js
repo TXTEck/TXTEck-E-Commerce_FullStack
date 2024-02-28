@@ -13,6 +13,22 @@ const upload = multer({ dest: `${process.env.UPLOADED_FILES_FOLDER}` })
 
 const emptyFolder = require('empty-folder')
 
+
+
+
+
+router.get(`/users`, (req, res) => {   
+    usersModel.find((error, data) => {
+        if(error) {
+            res.status(500).send(error);
+        } else {
+            res.status(200).json(data);
+        }
+    });
+});
+
+
+
 // IMPORTANT
 // Obviously, in a production release, you should never have the code below, as it allows a user to delete a database collection
 // The code below is for development testing purposes only 
@@ -99,6 +115,7 @@ router.post(`/users/login/:email/:password`, (req, res) => {
         }
     })
 })
+
 
 
 router.post(`/users/logout`, (req, res) => {
