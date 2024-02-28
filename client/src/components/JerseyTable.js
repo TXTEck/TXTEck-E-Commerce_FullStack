@@ -129,6 +129,7 @@ export default class JerseyTable extends Component {
                 <table>
                     <thead>
                         <tr>
+                            <th></th>
                             <th onClick={() => this.handleSort('team')}>Team {this.state.sortBy === 'team' && (this.state.sortAsc ? '▲' : '▼')}</th>
                             <th onClick={() => this.handleSort('player')}>Player {this.state.sortBy === 'player' && (this.state.sortAsc ? '▲' : '▼')}</th>
                             <th onClick={() => this.handleSort('number')}>Number {this.state.sortBy === 'number' && (this.state.sortAsc ? '▲' : '▼')}</th>

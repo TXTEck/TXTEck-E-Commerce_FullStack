@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { SERVER_HOST, ACCESS_LEVEL_ADMIN } from '../config/global_constants';
+import '../css/userlist.css';
 
 export default class ViewUsers extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ export default class ViewUsers extends Component {
                 <h2>Users List</h2>
                 <div>
                     {this.state.users.map(user => (
-                        <div key={user._id}>
+                        <div key={user._id} id="user-card">
                             <h3>{user.name}</h3>
                             <p>Email: {user.email}</p>
                             <p>Access Level: {user.accessLevel}</p>

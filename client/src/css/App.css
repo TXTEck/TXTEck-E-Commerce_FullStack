@@ -135,4 +135,11 @@ color:pink;
 {
     margin-top:1em;
 }
+
+#jersey-pic
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 5%;
+}
 /*end of table of cars */
