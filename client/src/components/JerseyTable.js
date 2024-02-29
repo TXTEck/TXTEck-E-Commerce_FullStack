@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import JerseyTableRow from "./JerseyTableRow";
+import JerseyCard from "./JerseyCard";
 
 export default class JerseyTable extends Component {
     constructor(props) {
@@ -34,8 +35,7 @@ export default class JerseyTable extends Component {
             const searchTermMatch = this.state.searchTerm ? (
                 jersey.team.toLowerCase().includes(this.state.searchTerm.toLowerCase()) ||
                 jersey.player.toLowerCase().includes(this.state.searchTerm.toLowerCase()) ||
-                jersey.number.toString().includes(this.state.searchTerm) ||
-                jersey.price.toString().includes(this.state.searchTerm)
+                jersey.number.toString().includes(this.state.searchTerm) 
             ) : true;
             const matchesTeam = this.state.teamFilter ? jersey.team === this.state.teamFilter : true;
             const matchesSize = this.state.sizeFilter ? jersey.size === this.state.sizeFilter : true;
@@ -64,7 +64,7 @@ export default class JerseyTable extends Component {
             }
             else if (sortBy === 'colour') {
                 return sortAsc ? a.colour.localeCompare(b.colour) : b.colour.localeCompare(a.colour);
-            } 
+            }
             else if (sortBy === 'price') {
                 return sortAsc ? a.price - b.price : b.price - a.price;
             }
@@ -103,13 +103,6 @@ export default class JerseyTable extends Component {
                             <option key={size} value={size}>{size}</option>
                         ))}
                     </select>
-                    <input
-                        type="text"
-                        name="numberFilter"
-                        placeholder="Filter by number..."
-                        value={this.state.numberFilter}
-                        onChange={this.updateFilter}
-                    /><br/>
                     Min Price: <input
                         type="range"
                         name="minPriceFilter"
@@ -139,12 +132,20 @@ export default class JerseyTable extends Component {
                             <th>    </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    {/* <tbody>
                         {filteredAndSortedJerseys.map((jersey) => (
                             <JerseyTableRow key={jersey._id} jersey={jersey} />
                         ))}
-                    </tbody>
+
+
+                    </tbody> */}
+
                 </table>
+                <div className="jersey-grid">
+                    {filteredAndSortedJerseys.map((jersey, index) => (
+                        <JerseyCard key={index} jersey={jersey} />
+                    ))}
+                </div>
             </div>
         );
     }

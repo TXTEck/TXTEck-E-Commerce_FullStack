@@ -9,18 +9,7 @@ export default class CarTableRow extends Component
 {    
     render() 
     {
-        let soldOrForSale = null
-        if(localStorage.accessLevel <= ACCESS_LEVEL_ADMIN)
-        {
-            if(this.props.car.sold !== true)
-            {
-                soldOrForSale = <BuyCar carID={this.props.car._id} price={this.props.car.price} />
-            }
-            else
-            {
-                soldOrForSale = "SOLD"
-            }
-        }
+
         return (
             <tr>
                 <td>{this.props.car.model}</td>
