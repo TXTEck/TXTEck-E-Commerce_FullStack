@@ -34,8 +34,7 @@ export default class DisplayAllCars extends Component
                     console.log(res.data.errorMessage)    
                 } 
                 else 
-                {           
-                    console.log("Jerseys records read")   
+                {             
                     this.setState({ jerseys: res.data }) 
                 }   
             } else {
