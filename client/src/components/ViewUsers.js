@@ -37,6 +37,7 @@ export default class ViewUsers extends Component {
                         <div key={user._id} id="user-card">
                             <h3>{user.name}</h3>
                             <p>Email: {user.email}</p>
+                            <p>address: {user.address}</p>
                             <p>Access Level: {user.accessLevel}</p>
                             <p>Profile Photo: {user.profilePhoto}</p>
                         </div>

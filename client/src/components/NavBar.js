@@ -1,29 +1,37 @@
-import React, {Component} from "react"
-import {Link} from "react-router-dom"
-import {ACCESS_LEVEL_GUEST, ACCESS_LEVEL_ADMIN} from "../config/global_constants"
+import React, { Component } from "react"
+import { Link } from "react-router-dom"
+import { ACCESS_LEVEL_GUEST, ACCESS_LEVEL_ADMIN } from "../config/global_constants"
+import "../css/NavBar.css"
 
-const NavBar = () => {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <Link className="navbar-brand" to="/">Home</Link>
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">About</Link>
+export default class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cartCount: JSON.parse(localStorage.getItem('cart')) ? JSON.parse(localStorage.getItem('cart')).length : 0
+  };
+  
+}
+  render() {
+    return (
+      <nav>
+        <ul>
+          <li>
+        <Link to="/">Home</Link>
           </li>
-          {/* Other navigation links here */}
+          <li>
+            <Link to="/about">About</Link>
+          </li>
           {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN && (
-            <li className="nav-item">
-              <Link className="nav-link" to="/ViewUsers">View Users</Link>
+            <li>
+              <Link to="/ViewUsers">View Users</Link>
             </li>
           )}
+          <li>
+          <Link to="/cart">Cart ({this.state.cartCount})</Link>
+          </li>
         </ul>
-      </div>
-    </nav>
-  );
-};
+      </nav>
+    );
+  }
+}
 
-export default NavBar;
