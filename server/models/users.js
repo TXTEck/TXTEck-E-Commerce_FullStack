@@ -6,7 +6,8 @@ let usersSchema = new mongoose.Schema(
         email: {type: String, required:true},
         password: {type: String,required:true},        
         accessLevel: {type: Number, default:parseInt(process.env.ACCESS_LEVEL_NORMAL_USER)},
-        profilePhotoFilename: {type:String, default:""}
+        profilePhotoFilename: {type:String, default:""},
+        address: {type: String, required:true}
    },
    {
        collection: `users`

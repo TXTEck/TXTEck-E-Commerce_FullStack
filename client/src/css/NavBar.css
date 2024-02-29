@@ -1,0 +1,27 @@
+/* NavBar.css */
+nav {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 10px 20px; /* Some padding around the nav content */
+  }
+  
+  nav a {
+    text-decoration: none; /* Removes underline from links */
+    color: black; /* Set link color to black */
+    margin-right: 20px; /* Adds some margin to the right of each link */
+  }
+  
+  nav a:hover {
+    text-decoration: underline; /* Underline link on hover */
+  }
+  
+  ul {
+    list-style: none; /* Removes default list styling */
+    display: flex; /* Use flexbox for horizontal layout */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+  }
+  
+  li {
+    padding: 0 10px; /* Adds padding to the left and right of each nav item */
+  }
+  

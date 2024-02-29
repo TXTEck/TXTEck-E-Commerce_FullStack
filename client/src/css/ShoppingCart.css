@@ -1,0 +1,49 @@
+.card {
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 16px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .imageContainer {
+    background-color: #fff;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .details {
+    padding: 16px;
+    background-color: #D9D9D9;
+    text-align: center;
+  }
+  
+  .team {
+    margin: 0;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .player {
+    margin: 4px 0;
+    color: #333;
+    font-size: 18px;
+  }
+  
+  .price {
+    color: #E44D2E;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 8px 0;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 16px;
+    border-top: 1px solid #eee;
+  }

@@ -20,7 +20,7 @@ import DeleteJersey from "./components/DeleteJersey"
 import AddJersey from "./components/AddJersey"
 import ViewUsers from "./components/ViewUsers"
 import NavBar from "./components/NavBar"
-
+import ShoppingCart from './components/ShoppingCart'
 
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants"
 
@@ -52,6 +52,7 @@ export default class App extends Component
                     <LoggedInRoute exact path="/AddCar" component={AddCar} />
                     <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
                     <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
+                    <Route path="/cart" component={ShoppingCart} />
 
                     <LoggedInRoute exact path="/EditJersey/:id" component={EditJersey} /> 
                     <LoggedInRoute exact path="/DeleteJersey/:id" component={DeleteJersey} />
