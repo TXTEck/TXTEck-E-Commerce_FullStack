@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom"
-import { ACCESS_LEVEL_GUEST, ACCESS_LEVEL_ADMIN } from "../config/global_constants"
+import { ACCESS_LEVEL_ADMIN } from "../config/global_constants"
 import "../css/NavBar.css"
 
 export default class NavBar extends Component {

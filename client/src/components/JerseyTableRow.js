@@ -28,7 +28,7 @@ export default class JerseyTableRow extends Component {
                 <td>
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="green-button" to={"/EditJersey/" + jersey._id}>Edit</Link> : null}
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="red-button" to={"/DeleteJersey/" + jersey._id}>Delete</Link> : null}
-                    <button onClick={() => this.addToCart(jersey)}>Add to Cart</button>
+                    <button onClick={() => this.addToCart(jersey)}></button>
                 </td>
             </tr>
         );
