@@ -21,6 +21,7 @@ import AddJersey from "./components/AddJersey"
 import ViewUsers from "./components/ViewUsers"
 import NavBar from "./components/NavBar"
 import ShoppingCart from './components/ShoppingCart'
+import DeleteUser from "./components/DeleteUser"
 
 import {ACCESS_LEVEL_GUEST} from "./config/global_constants"
 
@@ -58,6 +59,7 @@ export default class App extends Component
                     <LoggedInRoute exact path="/DeleteJersey/:id" component={DeleteJersey} />
                     <LoggedInRoute exact path="/AddJersey" component={AddJersey} />
                     <LoggedInRoute exact path="/ViewUsers" component={ViewUsers} />
+                    <LoggedInRoute exact path="/DeleteUser/:id" component={DeleteUser} />
                     <Route exact path="/DisplayAllCars" component={DisplayAllCars}/> 
                     <Route path="*" component={DisplayAllCars}/>   
                                        

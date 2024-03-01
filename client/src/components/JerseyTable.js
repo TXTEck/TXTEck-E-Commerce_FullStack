@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import JerseyCard from "./JerseyCard";
+import "../css/JerseyTable.css";
 
 export default class JerseyTable extends Component {
     constructor(props) {

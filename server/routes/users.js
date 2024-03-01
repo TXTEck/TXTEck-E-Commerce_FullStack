@@ -116,6 +116,35 @@ router.post(`/users/login/:email/:password`, (req, res) => {
     })
 })
 
+router.delete(`/users/:id`, (req, res) => 
+{
+    jwt.verify(req.headers.authorization, JWT_PRIVATE_KEY, {algorithm: "HS256"}, (err, decodedToken) => 
+    {
+        if (err) 
+        { 
+            res.json({errorMessage: `User is not logged in`});
+        }
+        else
+        {
+            if(decodedToken.accessLevel >= process.env.ACCESS_LEVEL_ADMIN)
+            {
+                usersModel.findByIdAndRemove(req.params.id, (error, data) => 
+                {
+                    if (!error) {
+                        res.json({message: "User deleted successfully"});
+                    } else {
+                        res.status(500).json({errorMessage: "Error deleting user"});
+                    }
+                })
+            }
+            else
+            {
+                res.json({errorMessage: `User is not an administrator, so they cannot delete records`});
+            }        
+        }
+    })
+});
+
 
 
 router.post(`/users/logout`, (req, res) => {

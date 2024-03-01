@@ -27,6 +27,7 @@ export default class ViewUsers extends Component {
             });
         }
     }
+    
 
     render() {
         return (
@@ -40,6 +41,7 @@ export default class ViewUsers extends Component {
                             <p>address: {user.address}</p>
                             <p>Access Level: {user.accessLevel}</p>
                             <p>Profile Photo: {user.profilePhoto}</p>
+                            {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="red-button" to={"/DeleteUser/" + user._id}>Delete</Link> : null}
                         </div>
                     ))}
                 </div>
