@@ -2,8 +2,7 @@ import React, {Component} from "react"
 import {Link} from "react-router-dom"
 
 import axios from "axios"
-import Logout from "./Logout"
-import {ACCESS_LEVEL_GUEST, ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
+import { ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
 import JerseyTable from './JerseyTable'; 
 
 
@@ -68,23 +67,7 @@ export default class DisplayAllCars extends Component
         
         return (           
             <div className="form-container">
-                {
-                    localStorage.accessLevel > ACCESS_LEVEL_GUEST 
-                    ? <div className="logout">
-                        {
-                            localStorage.profilePhoto !== "null" 
-                            ? <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`} alt=""/>
-                            : null
-                        }   
-                        <Logout/>
-                      </div>
-                    :
-                      <div>
-                        <Link className="green-button" to={"/Login"}>Login</Link>
-                        <Link className="blue-button" to={"/Register"}>Register</Link>  
-                        <Link className="red-button" to={"/ResetDatabase"}>Reset Database</Link>  <br/><br/><br/>
-                      </div>
-                }
+               
                 <div className="table-container">
                     <JerseyTable jerseys={this.state.jerseys} />   
                     {

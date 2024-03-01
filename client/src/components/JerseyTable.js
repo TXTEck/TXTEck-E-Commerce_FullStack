@@ -77,12 +77,13 @@ export default class JerseyTable extends Component {
 
         return (
             <div>
-                <div style={{ marginBottom: "20px" }}>
+                <div style={{ marginBottom: "20px" }} className="display-bar">
                     <input
                         type="text"
                         placeholder="Search jerseys..."
                         value={this.state.searchTerm}
                         onChange={this.updateSearchTerm}
+                        className="search-bar"
                     />
                     <select
                         name="teamFilter"
@@ -91,7 +92,7 @@ export default class JerseyTable extends Component {
                         <option value="">All Teams</option>
                         {['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 'Cleveland Cavaliers', 'Dallas Mavericks', 'Denver Nuggets', 'Detroit Pistons', 'Golden State Warriors', 'Houston Rockets', 'Indiana Pacers', 'LA Clippers', 'Los Angeles Lakers', 'Memphis Grizzlies', 'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'New Orleans Pelicans', 'New York Knicks', 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers', 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'].map(team => (
                             <option key={team} value={team}>{team}</option>
-                        ))}
+                        ))}  
                     </select>
                     <select
                         name="sizeFilter"
@@ -119,9 +120,8 @@ export default class JerseyTable extends Component {
                     /> ${this.state.maxPriceFilter}
                 </div>
                 <table>
-                    <thead>
+                    <thead className="headings">
                         <tr>
-                            <th></th>
                             <th onClick={() => this.handleSort('team')}>Team {this.state.sortBy === 'team' && (this.state.sortAsc ? '▲' : '▼')}</th>
                             <th onClick={() => this.handleSort('player')}>Player {this.state.sortBy === 'player' && (this.state.sortAsc ? '▲' : '▼')}</th>
                             <th onClick={() => this.handleSort('number')}>Number {this.state.sortBy === 'number' && (this.state.sortAsc ? '▲' : '▼')}</th>

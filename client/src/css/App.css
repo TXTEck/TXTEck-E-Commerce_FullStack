@@ -19,6 +19,10 @@
     background: #f7f7f7;
 }
 
+.headings:hover
+{
+    cursor: pointer;
+}
 
 .logout
 {
