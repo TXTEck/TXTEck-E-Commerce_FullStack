@@ -5,7 +5,7 @@ import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
 
-import {ACCESS_LEVEL_ADMIN, ACCESS_LEVEL_NORMAL_USER, SERVER_HOST} from "../config/global_constants"
+import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
 
 export default class EditJersey extends Component 
 {

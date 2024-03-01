@@ -36,7 +36,9 @@ export default class JerseyCard extends React.Component {
                 <div className="actions">
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="green-button" to={"/EditJersey/" + this.props.jersey._id}>Edit</Link> : null}
                     {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? <Link className="red-button" to={"/DeleteJersey/" + this.props.jersey._id}>Delete</Link> : null}
-                    <button onClick={this.addToCart} className="add-to-cart-button">Add to Cart</button>
+                    <button onClick={this.addToCart} className="add-to-cart-button">
+                        <img src="cart.jpg" alt ="cart"></img>
+                    </button>
                 </div>
             </div>
         );

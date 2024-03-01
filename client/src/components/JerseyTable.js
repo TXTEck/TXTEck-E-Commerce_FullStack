@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import JerseyTableRow from "./JerseyTableRow";
 import JerseyCard from "./JerseyCard";
 
 export default class JerseyTable extends Component {
