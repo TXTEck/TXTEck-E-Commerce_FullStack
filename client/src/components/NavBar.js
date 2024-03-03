@@ -40,9 +40,9 @@ export default class NavBar extends Component {
                       </div>
                     :
                       <div>
-                        <Link className="green-button" to={"/Login"}>Login</Link>
+                        <Link className="gren-button" to={"/Login"}>Login</Link>
                         <Link className="blue-button" to={"/Register"}>Register</Link>  
-                        <Link className="red-button" to={"/ResetDatabase"}>Reset Database</Link>  <br/><br/><br/>
+                        <Link className="rerd-button" to={"/ResetDatabase"}>Reset Database</Link>  <br/><br/><br/>
                       </div>
                 }
           </li>
