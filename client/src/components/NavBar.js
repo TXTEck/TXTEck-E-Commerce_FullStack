@@ -24,27 +24,37 @@ export default class NavBar extends Component {
               <Link to="/ViewUsers">View Users</Link>
             </li>
           )}
+          {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN && (
+            <li>
+            <Link to="/PurchaseHistory">Purchase History</Link>
+            </li>
+            )}
           <li>
             <Link to="/cart">Cart ({this.state.cartCount})</Link>
           </li>
+          <li className="navbar-logo">
+            <Link to="/">
+              <img src={process.env.PUBLIC_URL + "store.jpg"} alt="NBA Store" />
+            </Link>
+          </li>
           <li>
-          {
-                    localStorage.accessLevel > ACCESS_LEVEL_GUEST 
-                    ? <div className="logout">
-                        <Logout/>
-                        {
-                            localStorage.profilePhoto !== "null" 
-                            ? <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`} alt=""/>
-                            : null
-                        }   
-                      </div>
-                    :
-                      <div>
-                        <Link className="gren-button" to={"/Login"}>Login</Link>
-                        <Link className="blue-button" to={"/Register"}>Register</Link>  
-                        <Link className="rerd-button" to={"/ResetDatabase"}>Reset Database</Link>  <br/><br/><br/>
-                      </div>
-                }
+            {
+              localStorage.accessLevel > ACCESS_LEVEL_GUEST
+                ? <div className="logout">
+                  <Logout />
+                  {
+                    localStorage.profilePhoto !== "null"
+                      ? <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`} alt="" />
+                      : null
+                  }
+                </div>
+                :
+                <div>
+                  <Link className="gren-button" to={"/Login"}>Login</Link>
+                  <Link className="blue-button" to={"/Register"}>Register</Link>
+                  <Link className="rerd-button" to={"/ResetDatabase"}>Reset Database</Link>  <br /><br /><br />
+                </div>
+            }
           </li>
         </ul>
       </nav>
