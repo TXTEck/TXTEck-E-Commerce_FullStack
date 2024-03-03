@@ -4,6 +4,7 @@ import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
 import {SERVER_HOST} from "../config/global_constants"
+import "../css/Login.css"
 
 
 export default class Login extends Component
@@ -59,7 +60,7 @@ export default class Login extends Component
     render()
     {            
         return (
-            <form className="form-container" noValidate = {true} id = "loginOrRegistrationForm">
+            <form className="login-container" noValidate = {true} id = "loginOrRegistrationForm">
                 <h2>Login</h2>
                 
                 {this.state.isLoggedIn ? <Redirect to="/DisplayAllCars"/> : null} 

@@ -1,5 +1,5 @@
-/* Container for the reg */
-.reg-container {
+/* Container for the login */
+.login-container {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
@@ -9,10 +9,8 @@
 }
 
 /* Styling for the input fields */
-.reg-container input[type="email"],
-.reg-container input[type="password"],
-.reg-container input[type="text"],
-.reg-container input[type="file"] {
+.login-container input[type="email"],
+.login-container input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -22,14 +20,8 @@
     box-sizing: border-box;
 }
 
-/* Adjustments for the file input to make it consistent */
-.reg-container input[type="file"] {
-    border: none;
-    margin-top: 20px; /* Add a bit more space above the file input */
-}
-
-/* Styling for the reg header */
-.reg-container h2 {
+/* Styling for the login header */
+.login-container h2 {
     text-align: center;
     color: #333;
 }
@@ -57,12 +49,17 @@
     color: white;
 }
 
+/* Add some spacing below each input */
+.login-container input + br {
+    display: none;
+}
+
+/* Adjust the margin for the last button */
+.login-container a:last-child {
+    margin-left: 0;
+}
+
 /* Hover effects for buttons */
 .green-button:hover, .red-button:hover {
     opacity: 0.8;
-}
-
-/* Hide the break lines */
-.reg-container br {
-    display: none;
 }
