@@ -4,6 +4,7 @@ nav {
   /* Light gray background */
   padding: 10px 20px;
   /* Some padding around the nav content */
+  margin-bottom: 20px;
 }
 
 nav a {
@@ -38,6 +39,7 @@ li {
 
 nav li:last-child {
   margin-left: auto;
+  height: 60px;
 }
 
 #profilePhoto {
