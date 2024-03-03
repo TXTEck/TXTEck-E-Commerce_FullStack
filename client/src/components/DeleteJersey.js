@@ -12,7 +12,7 @@ export default class DeleteJersey extends Component
         super(props)
         
         this.state = {
-            redirectToDisplayAllCars:false
+            redirectToDisplayAllJerseys:false
         }
     }
     
@@ -32,7 +32,7 @@ export default class DeleteJersey extends Component
                 { 
                     console.log("Record deleted")
                 }
-                this.setState({redirectToDisplayAllCars:true})
+                this.setState({redirectToDisplayAllJerseys:true})
             }
             else 
             {
@@ -46,7 +46,7 @@ export default class DeleteJersey extends Component
     {
         return (
             <div>   
-                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}                      
+                {this.state.redirectToDisplayAllJerseys ? <Redirect to="/redirectToDisplayAllJerseys"/> : null}                      
             </div>
         )
     }

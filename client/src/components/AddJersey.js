@@ -21,7 +21,7 @@ export default class AddCar extends Component
             price: ``,
             colour:``,
             size: ``,
-            redirectToDisplayAllCars:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
+            redirectToDisplayAllJerseys:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
@@ -63,7 +63,7 @@ export default class AddCar extends Component
                 else
                 {   
                     console.log("Record added")
-                    this.setState({redirectToDisplayAllCars:true})
+                    this.setState({redirectToDisplayAllJerseys:true})
                 } 
             }
             else
@@ -78,7 +78,7 @@ export default class AddCar extends Component
     {        
         return (
             <div className="addj-container"> 
-                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}                                            
+                {this.state.redirectToDisplayAllJerseys ? <Redirect to="/redirectToDisplayAllJerseys"/> : null}                                            
                     
                 <Form>
                     <Form.Group controlId="team">
@@ -113,7 +113,7 @@ export default class AddCar extends Component
   
                     <LinkInClass value="Add" className="green-button" onClick={this.handleSubmit}/>  
     
-                    <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>
+                    <Link className="red-button" to={"/DisplayAllJerseys"}>Cancel</Link>
                 </Form>
             </div>
         )

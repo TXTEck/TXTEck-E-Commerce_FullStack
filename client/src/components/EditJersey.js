@@ -20,7 +20,7 @@ export default class EditJersey extends Component
             price: ``,
             colour:``,
             size: ``,
-            redirectToDisplayAllCars:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
+            redirectToDisplayAllJerseys:localStorage.accessLevel < ACCESS_LEVEL_ADMIN
         }
     }
 
@@ -88,7 +88,7 @@ export default class EditJersey extends Component
                 else
                 {      
                     console.log(`Record updated`)
-                    this.setState({redirectToDisplayAllCars:true})
+                    this.setState({redirectToDisplayAllJerseys:true})
                 }
             }
             else
@@ -104,7 +104,7 @@ export default class EditJersey extends Component
         return (
             <div className="form-container">
     
-                {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}  
+                {this.state.redirectToDisplayAllJerseys ? <Redirect to="/DisplayAllJerseys"/> : null}  
                         
                 <Form>
                     <Form.Group controlId="team">
@@ -139,7 +139,7 @@ export default class EditJersey extends Component
   
                     <LinkInClass value="Update" className="green-button" onClick={this.handleSubmit}/>  
     
-                    <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>
+                    <Link className="red-button" to={"/DisplayAllJerseys"}>Cancel</Link>
                 </Form>
             </div>
         )
