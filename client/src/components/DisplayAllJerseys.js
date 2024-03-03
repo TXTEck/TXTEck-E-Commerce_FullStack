@@ -6,7 +6,7 @@ import { ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
 import JerseyTable from './JerseyTable'; 
 
 
-export default class DisplayAllCars extends Component 
+export default class DisplayAllJerseys extends Component 
 {
     constructor(props) 
     {

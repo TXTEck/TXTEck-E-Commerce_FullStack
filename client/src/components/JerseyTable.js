@@ -81,7 +81,7 @@ export default class JerseyTable extends Component {
                 <div style={{ marginBottom: "20px" }} className="display-bar">
                     <input
                         type="text"
-                        placeholder="Search jerseys..."
+                        placeholder="Search Team, Player, Number..."
                         value={this.state.searchTerm}
                         onChange={this.updateSearchTerm}
                         className="search-bar"

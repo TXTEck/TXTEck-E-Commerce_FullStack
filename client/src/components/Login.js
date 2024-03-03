@@ -52,7 +52,7 @@ export default class Login extends Component
             {
                 console.log("Login failed")
             }
-        })                
+        })               
     }
 
 

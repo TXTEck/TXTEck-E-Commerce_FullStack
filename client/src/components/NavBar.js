@@ -19,9 +19,6 @@ export default class NavBar extends Component {
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
           {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN && (
             <li>
               <Link to="/ViewUsers">View Users</Link>
