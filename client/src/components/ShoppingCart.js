@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js"
-import { SANDBOX_CLIENT_ID } from "../config/global_constants";
+import Checkout from './Checkout';
 import "../css/ShoppingCart.css";
 
 export default class ShoppingCart extends Component {
@@ -56,14 +55,7 @@ export default class ShoppingCart extends Component {
                     ))}
                     <div className="total-section">
                         <h3>Total: ${this.state.total.toFixed(2)}</h3>
-                        <PayPalScriptProvider options={{ currency: "EUR", "client-id": SANDBOX_CLIENT_ID }} className ="paypal-buttons-container ">
-                            <PayPalButtons className="paypal-buttons"
-                             style={{ layout: "horizontal" }} 
-                             createOrder={this.createOrder} 
-                             onApprove={this.onApprove} 
-                             onError={this.onError} 
-                             onCancel={this.onCancel} />
-                        </PayPalScriptProvider>
+                        <Checkout price = {this.state.total.toFixed(2)}/>
                     </div>
                 </div>
             </div>
