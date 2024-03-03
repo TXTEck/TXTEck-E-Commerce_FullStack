@@ -1,9 +1,7 @@
 import React, {Component} from "react"
 import {Redirect, Link} from "react-router-dom"
 import Form from "react-bootstrap/Form"
-
 import axios from "axios"
-
 import LinkInClass from "../components/LinkInClass"
 
 import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
