@@ -8,19 +8,12 @@
 
 #user-card {
     flex: 0 1 calc(33.333% - 20px);
-    /* Adjust the width for 3 in a row, accounting for the gap */
     border: 1px solid #ccc;
-    /* Example border */
     border-radius: 10px;
-    /* Rounded corners for the cards */
     padding: 20px;
-    /* Padding inside the cards */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Optional: adds a shadow to the cards */
     background: #fff;
-    /* Background color for the cards */
     align-items: center;
-    /* Align the items vertically */
     display: flex;
     flex-direction: column;
 }

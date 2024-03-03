@@ -1,4 +1,4 @@
-/* Container for the login */
+
 .login-container {
     max-width: 400px;
     margin: 50px auto;
@@ -8,7 +8,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for the input fields */
 .login-container input[type="email"],
 .login-container input[type="password"] {
     width: 100%;
@@ -20,13 +19,11 @@
     box-sizing: border-box;
 }
 
-/* Styling for the login header */
 .login-container h2 {
     text-align: center;
     color: #333;
 }
 
-/* Button styles */
 .green-button, .red-button {
     padding: 10px 20px;
     border: none;

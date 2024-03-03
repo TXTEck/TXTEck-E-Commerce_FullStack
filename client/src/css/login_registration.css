@@ -1,4 +1,4 @@
-/* Container for the reg */
+
 .reg-container {
     max-width: 400px;
     margin: 50px auto;
@@ -8,7 +8,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for the input fields */
+
 .reg-container input[type="email"],
 .reg-container input[type="password"],
 .reg-container input[type="text"],
@@ -22,19 +22,17 @@
     box-sizing: border-box;
 }
 
-/* Adjustments for the file input to make it consistent */
+
 .reg-container input[type="file"] {
     border: none;
-    margin-top: 20px; /* Add a bit more space above the file input */
+    margin-top: 20px; 
 }
 
-/* Styling for the reg header */
 .reg-container h2 {
     text-align: center;
     color: #333;
 }
 
-/* Button styles */
 .green-button, .red-button {
     padding: 10px 20px;
     border: none;
@@ -48,21 +46,20 @@
 }
 
 .green-button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50; 
     color: white;
 }
 
 .red-button {
-    background-color: #f44336; /* Red */
+    background-color: #f44336; 
     color: white;
 }
 
-/* Hover effects for buttons */
+
 .green-button:hover, .red-button:hover {
     opacity: 0.8;
 }
 
-/* Hide the break lines */
 .reg-container br {
     display: none;
 }

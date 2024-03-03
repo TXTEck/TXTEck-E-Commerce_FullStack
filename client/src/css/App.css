@@ -97,10 +97,6 @@ color:pink;
 
 
 
-
-
-
-/* table of cars */
 .table-container table
 {
     width:100%;
@@ -150,7 +146,7 @@ color:pink;
 .jersey-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around; /* This will space out your items evenly */
-    gap: 0.3rem; /* This adds space between rows and columns */
+    justify-content: space-around; 
+    gap: 0.3rem; 
   }
-/*end of table of cars */
+
