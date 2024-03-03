@@ -27,12 +27,28 @@ export default class Checkout extends Component
     
     onApprove = paymentData =>
     {      
-        axios.post(`${SERVER_HOST}/sales/${paymentData.orderID}/${this.props.carID}/${this.props.price}`, {headers:{"authorization":localStorage.token, "Content-type": "multipart/form-data"}})
+        const updatedSaleData = {
+            ...this.props.saleData,
+            paypalPaymentID: paymentData.orderID
+        };
+    
+        axios.post(`${SERVER_HOST}/sales`, updatedSaleData, {
+            headers: {
+                "authorization": localStorage.token,
+                "Content-Type": "application/json"
+            }
+        })
         .then(res => 
         {                   
             this.setState({payPalMessageType:PayPalMessage.messageType.SUCCESS, 
                            payPalOrderID:paymentData.orderID, 
                            redirectToPayPalMessage:true}) 
+            
+            localStorage.removeItem('cart');
+
+            if (this.props.onPaymentSuccess) {
+                this.props.onPaymentSuccess();
+            }
         })
         .catch(errorData =>
         {           
