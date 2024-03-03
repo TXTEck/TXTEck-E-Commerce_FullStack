@@ -13,7 +13,6 @@ export default class DisplayAllJerseys extends Component
         super(props)
         
         this.state = {
-            cars:[],
             jerseys: []
         }
     }
@@ -38,26 +37,6 @@ export default class DisplayAllJerseys extends Component
                 console.log("Jerseys record not found")
             }
         });
-        axios.get(`${SERVER_HOST}/cars`)
-        .then(res => 
-        {
-            if(res.data)
-            {
-                if (res.data.errorMessage)
-                {
-                    console.log(res.data.errorMessage)    
-                }
-                else
-                {             
-                    this.setState({cars: res.data}) 
-                }   
-            }
-            else
-            {
-                console.log("Record not found")
-            }
-        })
-
     
     }
 

@@ -84,7 +84,7 @@ export default class Register extends Component {
 
             <form className="reg-container" noValidate = {true} id = "loginOrRegistrationForm">
            
-                {this.state.isRegistered ? <Redirect to="/DisplayAllCars"/> : null} 
+                {this.state.isRegistered ? <Redirect to="/DisplayAllJerseys"/> : null} 
             
 
                 <h2>New User Registration</h2>
