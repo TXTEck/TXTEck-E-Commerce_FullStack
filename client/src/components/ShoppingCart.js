@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js"
+import { SANDBOX_CLIENT_ID } from "../config/global_constants";
 import "../css/ShoppingCart.css";
 
 export default class ShoppingCart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cartItems: JSON.parse(localStorage.getItem('cart')) || []
+            cartItems: JSON.parse(localStorage.getItem('cart')) || [],
+            total: 0
         };
+    }
+
+    componentDidMount() {
+        this.calculateTotal();
+    }
+
+    calculateTotal = () => {
+        const total = this.state.cartItems.reduce((acc, item) => acc + item.price, 0);
+        this.setState({ total });
     }
 
     removeFromCart = (index) => {
         let { cartItems } = this.state;
         cartItems.splice(index, 1);
-        this.setState({ cartItems });
-        localStorage.setItem('cart', JSON.stringify(cartItems));
+        this.setState({ cartItems }, () => {
+            this.calculateTotal();
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+        });
         window.location.reload();
-    }
+    };
+
 
     render() {
         return (
@@ -39,6 +54,17 @@ export default class ShoppingCart extends Component {
                             </div>
                         </div>
                     ))}
+                    <div className="total-section">
+                        <h3>Total: ${this.state.total.toFixed(2)}</h3>
+                        <PayPalScriptProvider options={{ currency: "EUR", "client-id": SANDBOX_CLIENT_ID }} className ="paypal-buttons-container ">
+                            <PayPalButtons className="paypal-buttons"
+                             style={{ layout: "horizontal" }} 
+                             createOrder={this.createOrder} 
+                             onApprove={this.onApprove} 
+                             onError={this.onError} 
+                             onCancel={this.onCancel} />
+                        </PayPalScriptProvider>
+                    </div>
                 </div>
             </div>
         );
