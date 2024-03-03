@@ -1,34 +1,27 @@
 div.display_bar {
+    max-width: 1000px;
+    margin: auto;
     display: flex;
-    flex-wrap: wrap; /* Allow the items to wrap when screen is too narrow */
-    justify-content: center;
+    justify-content: space-between; 
     align-items: center;
     margin-bottom: 20px;
 }
 
+
 .search-bar, .display-bar select, .display-bar input[type=range] {
+    flex: 1; 
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
-    transition: border-color 0.3s ease;
-    /* Removing fixed margins to allow for responsive spacing */
-    margin: 5px; /* Provide some space around elements */
+    margin: 5px;
+    max-width: 220px;
 }
 
-.search-bar {
-    flex: 1 1 auto; /* Allow the search bar to grow and shrink as needed */
-    min-width: 150px; /* Minimum width so it doesn't get too small */
-}
-
-.display-bar select, .display-bar input[type=range] {
-    flex: 1 1 auto; /* Allow the select and range inputs to grow and shrink */
-    min-width: 120px; /* Minimum width for better control */
-}
 
 div.prices {
-    flex: 100%; /* Make the price range input take full width on wrap */
+    flex: 100%; 
     justify-content: center;
     display: flex;
     margin: 5px 0;
@@ -36,11 +29,11 @@ div.prices {
 
 div.display_bar_child {
     display: flex;
-    align-items: center; /* Center-align the filter controls */
-    width: 100%; /* Full width to contain all filters nicely */
+    align-items: center;
+    width: 100%; 
 }
 
-/* Adjustments for smaller screens */
+
 @media (max-width: 720px) {
     div.display_bar {
         flex-direction: column;
@@ -48,20 +41,19 @@ div.display_bar_child {
     }
 
     .search-bar, .display-bar select, .display-bar input[type=range] {
-        width: 90%; /* Adjust width to fit container */
-        margin: 10px 0; /* Adjusted for spacing */
+        width: 90%;
+        margin: 10px 0;
     }
     div.display_bar_child {
-        flex-direction: column; /* Stack the filters vertically */
+        flex-direction: column; 
     }
 }
 
 @media screen and (max-width: 502px) {
     thead.headings, table th {
-        font-size: 12px; /* Smaller font size for headings */
+        font-size: 12px; 
     }
 
-    /* Ensuring the table is scrollable horizontally on small devices */
     table {
         overflow-x: auto;
         white-space: nowrap;
