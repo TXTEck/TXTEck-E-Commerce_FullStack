@@ -54,3 +54,14 @@ nav li:last-child {
   align-items: center;
   margin-left: auto; /* This will push the logout div to the right */
 }
+@media only screen and (max-width: 520px) {
+  .navbar ul {
+      display: none;
+  }
+  .navbar a.icon {
+      display: block;
+  }
+  li {
+      padding: 0;
+  }
+}

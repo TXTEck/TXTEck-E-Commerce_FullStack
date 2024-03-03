@@ -78,7 +78,8 @@ export default class JerseyTable extends Component {
 
         return (
             <div>
-                <div style={{ marginBottom: "20px" }} className="display-bar">
+                <div className="display-bar">
+                    <div className="display_bar_child">
                     <input
                         type="text"
                         placeholder="Search Team, Player, Number..."
@@ -104,6 +105,8 @@ export default class JerseyTable extends Component {
                             <option key={size} value={size}>{size}</option>
                         ))}
                     </select>
+                    </div>
+                    <div className="prices">
                     Min Price: <input
                         type="range"
                         name="minPriceFilter"
@@ -119,6 +122,7 @@ export default class JerseyTable extends Component {
                         value={this.state.maxPriceFilter}
                         onChange={this.updateFilter}
                     /> ${this.state.maxPriceFilter}
+                    </div>
                 </div>
                 <table>
                     <thead className="headings">
