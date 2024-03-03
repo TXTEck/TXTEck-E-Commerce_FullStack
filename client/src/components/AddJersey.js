@@ -3,6 +3,7 @@ import {Redirect, Link} from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import axios from "axios"
 import LinkInClass from "../components/LinkInClass"
+import "../css/AddJersey.css"
 
 import {ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
 
@@ -68,7 +69,7 @@ export default class AddCar extends Component
             else
             {
                 console.log("Record not added")
-            }
+            } 
         })
     }
 
@@ -76,7 +77,7 @@ export default class AddCar extends Component
     render()
     {        
         return (
-            <div className="form-container"> 
+            <div className="addj-container"> 
                 {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}                                            
                     
                 <Form>
