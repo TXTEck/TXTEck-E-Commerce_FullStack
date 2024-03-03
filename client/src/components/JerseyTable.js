@@ -82,7 +82,7 @@ export default class JerseyTable extends Component {
                     <div className="display_bar_child">
                     <input
                         type="text"
-                        placeholder="Search Team, Player, Number..."
+                        placeholder="  Search Team, Player, Number..."
                         value={this.state.searchTerm}
                         onChange={this.updateSearchTerm}
                         className="search-bar"
@@ -91,7 +91,7 @@ export default class JerseyTable extends Component {
                         name="teamFilter"
                         value={this.state.teamFilter}
                         onChange={this.updateFilter}>
-                        <option value="">All Teams</option>
+                        <option value=""> All Teams</option>
                         {['Atlanta Hawks', 'Boston Celtics', 'Brooklyn Nets', 'Charlotte Hornets', 'Chicago Bulls', 'Cleveland Cavaliers', 'Dallas Mavericks', 'Denver Nuggets', 'Detroit Pistons', 'Golden State Warriors', 'Houston Rockets', 'Indiana Pacers', 'LA Clippers', 'Los Angeles Lakers', 'Memphis Grizzlies', 'Miami Heat', 'Milwaukee Bucks', 'Minnesota Timberwolves', 'New Orleans Pelicans', 'New York Knicks', 'Oklahoma City Thunder', 'Orlando Magic', 'Philadelphia 76ers', 'Phoenix Suns', 'Portland Trail Blazers', 'Sacramento Kings', 'San Antonio Spurs', 'Toronto Raptors', 'Utah Jazz', 'Washington Wizards'].map(team => (
                             <option key={team} value={team}>{team}</option>
                         ))}  
@@ -100,7 +100,7 @@ export default class JerseyTable extends Component {
                         name="sizeFilter"
                         value={this.state.sizeFilter}
                         onChange={this.updateFilter}>
-                        <option value="">All Sizes</option>
+                        <option value=""> All Sizes</option>
                         {['XS', 'S', 'M', 'L', 'XL'].map(size => (
                             <option key={size} value={size}>{size}</option>
                         ))}
@@ -128,13 +128,6 @@ export default class JerseyTable extends Component {
                             <th>    </th>
                         </tr>
                     </thead>
-                    {/* <tbody>
-                        {filteredAndSortedJerseys.map((jersey) => (
-                            <JerseyTableRow key={jersey._id} jersey={jersey} />
-                        ))}
-
-
-                    </tbody> */}
 
                 </table>
                 <div className="jersey-grid">

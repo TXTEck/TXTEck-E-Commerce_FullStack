@@ -7,7 +7,7 @@ import "../css/jerseyCard.css";
 export default class JerseyCard extends React.Component {
   addToCart = () => {
     const jersey = this.props.jersey;
-    const imagePath = process.env.PUBLIC_URL + jersey.jerseyPictureFilename; // Get the image path
+    const imagePath = process.env.PUBLIC_URL + jersey.jerseyPictureFilename; 
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push({
         id: jersey.id,
@@ -15,7 +15,7 @@ export default class JerseyCard extends React.Component {
         player: jersey.player,
         price: jersey.price,
         size: jersey.size,
-        image: imagePath // Add imagePath to the cart item
+        image: imagePath 
     });
     localStorage.setItem('cart', JSON.stringify(cart));
     alert(`${this.props.jersey.player} jersey added to cart!`);
@@ -31,7 +31,7 @@ export default class JerseyCard extends React.Component {
                 </div>
                 <div className="details">
                     <h2 className="team">{this.props.jersey.team}</h2>
-                    <h3 className="player">{this.props.jersey.player}</h3>
+                    <h3 className="player">{this.props.jersey.player} &#40;{this.props.jersey.size}&#41;</h3>
                     <div className="price">{`$${this.props.jersey.price}`}</div>
                 </div>
                 <div className="actions">
