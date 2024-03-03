@@ -1,3 +1,11 @@
+#cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+  gap: 20px; 
+  padding: 20px; 
+}
+
 .card {
     width: 250px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -46,4 +54,9 @@
     justify-content: space-around;
     padding: 8px 16px;
     border-top: 1px solid #eee;
+  }
+
+  h2{
+    text-align: center;
+    margin: 20px 0;
   }

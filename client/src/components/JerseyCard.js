@@ -18,7 +18,8 @@ export default class JerseyCard extends React.Component {
         image: imagePath // Add imagePath to the cart item
     });
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${jersey.name} added to cart!`);
+    alert(`${this.props.jersey.player} jersey added to cart!`);
+    window.location.reload();
 }
     render() {
         const imagePath = process.env.PUBLIC_URL + this.props.jersey.jerseyPictureFilename;
