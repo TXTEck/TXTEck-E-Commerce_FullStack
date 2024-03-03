@@ -57,7 +57,7 @@ router.post(`/users/reset_user_collection`, (req, res) => {
 })
 
 
-router.post(`/users/register/:name/:email/:password`, upload.single("profilePhoto"), (req, res) => {
+router.post(`/users/register/:name/:email/:password/:address`, upload.single("profilePhoto"), (req, res) => {
     if (!req.file) {
         res.json({ errorMessage: `No file was selected to be uploaded` })
     }
@@ -72,7 +72,7 @@ router.post(`/users/register/:name/:email/:password`, upload.single("profilePhot
             }
             else {
                 bcrypt.hash(req.params.password, parseInt(process.env.PASSWORD_HASH_SALT_ROUNDS), (err, hash) => {
-                    usersModel.create({ name: req.params.name, email: req.params.email, password: hash, profilePhotoFilename:req.file.filename }, (error, data) => {
+                    usersModel.create({ name: req.params.name, email: req.params.email, password: hash,profilePhotoFilename:req.file.filename,address: req.params.address }, (error, data) => {
                         if (data) {
                             const token = jwt.sign({ email: data.email, accessLevel: data.accessLevel }, JWT_PRIVATE_KEY, { algorithm: 'HS256', expiresIn: process.env.JWT_EXPIRY })
                             fs.readFile(`${process.env.UPLOADED_FILES_FOLDER}/${req.file.filename}`, 'base64', (err, fileData) => 
