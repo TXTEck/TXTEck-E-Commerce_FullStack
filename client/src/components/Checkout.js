@@ -7,7 +7,7 @@ import PayPalMessage from "./PayPalMessage"
 import {PayPalButtons, PayPalScriptProvider} from "@paypal/react-paypal-js"
 
 
-export default class BuyCar extends Component
+export default class Checkout extends Component
 {
     constructor(props)
     {
