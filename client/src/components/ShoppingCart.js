@@ -40,10 +40,10 @@ export default class ShoppingCart extends Component {
 
         const saleData = {
             customerName: customerName,
-            paypalPaymentID: "PAYPAL_PAYMENT_ID", // This should be retrieved from the PayPal transaction
+            paypalPaymentID: "PAYPAL_PAYMENT_ID", 
             price: this.state.total,
             items: this.state.cartItems,
-            purchaseDate: new Date() // This will be set automatically by Mongoose to the current date and time
+            purchaseDate: new Date() 
         };
         console.log(saleData);
         return (

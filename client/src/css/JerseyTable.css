@@ -1,58 +1,64 @@
 div.display_bar {
     display: flex;
+    flex-wrap: wrap; /* Allow the items to wrap when screen is too narrow */
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
 }
 
 .search-bar, .display-bar select, .display-bar input[type=range] {
-    padding: 8px 0px;
+    padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
     outline: none;
     transition: border-color 0.3s ease;
-    margin: 0px 25px;
-}
-
-.search-bar:focus, .display-bar select:focus, .display-bar input[type=range]:focus {
-    border-color: #007bff;
+    /* Removing fixed margins to allow for responsive spacing */
+    margin: 5px; /* Provide some space around elements */
 }
 
 .search-bar {
-    width: 220px;
+    flex: 1 1 auto; /* Allow the search bar to grow and shrink as needed */
+    min-width: 150px; /* Minimum width so it doesn't get too small */
 }
 
-div.prices, div.display_bar_child {
-    display: flex;
+.display-bar select, .display-bar input[type=range] {
+    flex: 1 1 auto; /* Allow the select and range inputs to grow and shrink */
+    min-width: 120px; /* Minimum width for better control */
+}
+
+div.prices {
+    flex: 100%; /* Make the price range input take full width on wrap */
     justify-content: center;
-    margin-bottom: 20px;
+    display: flex;
+    margin: 5px 0;
 }
 
-thead.headings {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
+div.display_bar_child {
+    display: flex;
+    align-items: center; /* Center-align the filter controls */
+    width: 100%; /* Full width to contain all filters nicely */
 }
 
 /* Adjustments for smaller screens */
 @media (max-width: 720px) {
     div.display_bar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
     }
 
     .search-bar, .display-bar select, .display-bar input[type=range] {
+        width: 90%; /* Adjust width to fit container */
         margin: 10px 0; /* Adjusted for spacing */
-        width: auto; /* Adjust width to fit container */
+    }
+    div.display_bar_child {
+        flex-direction: column; /* Stack the filters vertically */
     }
 }
 
 @media screen and (max-width: 502px) {
-    thead.headings {
-        font-weight: 200;
-        font-size: 14px;
-        text-align: center;
+    thead.headings, table th {
+        font-size: 12px; /* Smaller font size for headings */
     }
 
     /* Ensuring the table is scrollable horizontally on small devices */
@@ -60,5 +66,10 @@ thead.headings {
         overflow-x: auto;
         white-space: nowrap;
         align-items: center;
+    }
+
+    .jersey-grid {
+        padding: 0;
+        margin: 0;
     }
 }

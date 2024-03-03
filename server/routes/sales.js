@@ -2,6 +2,7 @@ const router = require('express').Router();
 const salesModel = require('../models/sales');
 const jerseysModel = require('../models/jerseys'); 
 
+
 const createNewSaleDocument = (req, res, next) => {
     let saleDetails = {
         customerName: req.body.customerName,

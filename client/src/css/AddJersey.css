@@ -1,0 +1,87 @@
+/* AddCar.css */
+
+/* Base styles for the addj container and elements */
+.addj-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for addj labels */
+.addj-container .addj-label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+/* Style for addj inputs */
+.addj-container .addj-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Style for buttons */
+.addj-container .green-button, .addj-container .red-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.addj-container .green-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.addj-container .red-button {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 500px) {
+    .addj-container {
+        width: 90%;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .addj-container .green-button, .addj-container .red-button {
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
+
+@media only screen and (min-width: 501px) and (max-width: 1000px) {
+    .addj-container {
+        width: 80%;
+    }
+
+    .addj-container .green-button, .addj-container .red-button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+
+@media only screen and (min-width: 1001px) {
+    .addj-container {
+        width: 70%;
+    }
+
+    .addj-container .green-button, .addj-container .red-button {
+        font-size: 18px;
+        padding: 12px 20px;
+    }
+}

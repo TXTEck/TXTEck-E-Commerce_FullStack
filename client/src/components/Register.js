@@ -35,6 +35,19 @@ export default class Register extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+            // Password validation regex
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)/;
+    if (!passwordRegex.test(this.state.password)) {
+        console.error("Password must contain at least one uppercase letter and one number.");
+        return;
+    }
+
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.state.email)) {
+        console.error("Please enter a valid email address.");
+        return;
+    }
 
         let formData = new FormData()
         formData.append("profilePhoto", this.state.selectedFile)

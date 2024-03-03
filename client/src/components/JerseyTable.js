@@ -105,15 +105,7 @@ export default class JerseyTable extends Component {
                             <option key={size} value={size}>{size}</option>
                         ))}
                     </select>
-                    </div>
-                    <div className="prices">
-                    Min Price: <input
-                        type="range"
-                        name="minPriceFilter"
-                        min="0"
-                        max="300" value={this.state.minPriceFilter}
-                        onChange={this.updateFilter}
-                    /> ${this.state.minPriceFilter}
+                   <div className="prices">
                     Max Price: <input
                         type="range"
                         name="maxPriceFilter"
@@ -121,8 +113,8 @@ export default class JerseyTable extends Component {
                         max="300"
                         value={this.state.maxPriceFilter}
                         onChange={this.updateFilter}
-                    /> ${this.state.maxPriceFilter}
-                    </div>
+                    /> ${this.state.maxPriceFilter}</div>
+                     </div>
                 </div>
                 <table>
                     <thead className="headings">
